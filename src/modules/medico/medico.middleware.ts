@@ -2,7 +2,7 @@ import { RequestHandler } from 'express'
 
 import { BadRequestError } from '../../services/error/error.class'
 import { validarSchema } from '../../services/validator.service'
-import { dadosMedicoSchama, medicoSchema } from './medico.schema'
+import { dadosMedicoSchama, medicoUpdateSchema } from './medico.schema'
 
 export const validarSave: RequestHandler = async (req, _res, next) => {
   try {
@@ -20,7 +20,7 @@ export const validarUpdate: RequestHandler = async (req, _res, next) => {
   try {
     if (!req.body.dados?.medico) throw new BadRequestError('Não foram recebidos dados do medico para passar na validação, envie o body no seguinte formato: { dados: { medico: { // dados do medico } } }')
     
-    validarSchema(req.body.dados.medico, medicoSchema, false)
+    validarSchema(req.body.dados.medico, medicoUpdateSchema, false)
     next()
   } catch (error) {
     next(error)

@@ -6,7 +6,7 @@ export interface MedicoRequest {
   complementoEndereco?: string
   dddFixo?: string
   telefoneFixo?: string
-  crm: string
+  crm?: string
   dddCelular: string
   telefoneCelular: string
 }

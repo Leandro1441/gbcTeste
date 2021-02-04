@@ -4,7 +4,7 @@ import { correiosReponse } from '../../suporte/correios/correios.data'
 
 describe('UNIDADE | Formatar um medico para salvar no BD', async () => {
   it('Quando o medico é formatado com sucesso', async() => {
-    const resul = await buscarCep('01001-000')
+    const resul = await buscarCep('01001000')
     expect(resul).to.deep.equal(correiosReponse)
   })
 })

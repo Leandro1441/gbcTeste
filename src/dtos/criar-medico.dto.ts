@@ -1,5 +1,5 @@
 export default interface CriarAlterarMedicoDTO {
-  CRM: string
+  CRM?: string
   nomeMedico: string
   rua: string
   numeroEndereco: string

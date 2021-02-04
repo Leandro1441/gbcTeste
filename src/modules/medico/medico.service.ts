@@ -14,7 +14,7 @@ import { UpdateResult } from 'typeorm'
 
 export const formatarMedicoParaSalvar = (medico: MedicoRequest, endereco: CorreioReponse): CriarAlterarMedicoDTO => {
   const medicoToSave: CriarAlterarMedicoDTO = {
-    CRM: formatarCRM(medico.crm),
+    CRM: medico.crm === undefined ? undefined : formatarCRM(medico.crm),
     complementoEndereco: medico.complementoEndereco,
     dddCelular: medico.dddCelular,
     isDeleted: 0,
@@ -27,17 +27,17 @@ export const formatarMedicoParaSalvar = (medico: MedicoRequest, endereco: Correi
     CEP: endereco.cep // formatado 00000-000 pela request
   }
 
+  if (medicoToSave.CRM === undefined) delete medicoToSave.CRM
   return medicoToSave
 }
 
 export const criarMedico = async (dados: DadosMedicoRequest): Promise<Medico> => {
   const endereco = await buscarCep(dados.medico.cep)
-  
+
   const medicoRepository = new MedicoRepository()
   const medicoEspecialidadeRepository = new MedicoEspecialidadeRepository()
 
   const medicoFormatadoToSave = formatarMedicoParaSalvar(dados.medico, endereco)
-
   const medicoSave = await medicoRepository.createAndSave(medicoFormatadoToSave)
 
   dados.especialidades.map(async (especialidade) => {
@@ -86,7 +86,7 @@ export const alterarMedico = async (crm: string, medico: MedicoRequest) => {
 
   const medicoRepository = new MedicoRepository()
   const medicoFormatadoToSave = formatarMedicoParaSalvar(medico, endereco)
-
+  console.log(medicoFormatadoToSave)
   const resultado = await medicoRepository.update(crm, medicoFormatadoToSave)
 
   if (!resultado.affected) throw new NotFoundError('Medico não encontrado!')

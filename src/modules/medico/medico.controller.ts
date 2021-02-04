@@ -1,6 +1,6 @@
 import { alterarMedico, alterarStatusMedico, buscarMedico, criarMedico, buscarMedicos, buscarMedicoPorEspecialidade } from './medico.service'
 import express from 'express'
-import { DadosMedicoRequest, MedicoRequest } from './medico'
+import { DadosMedicoRequest } from './medico'
 import { validarSave, validarUpdate } from './medico.middleware'
 
 const medicoBoletoRouter = express.Router()
@@ -57,8 +57,8 @@ medicoBoletoRouter.post('/', validarSave, async (req, res, next) => {
 medicoBoletoRouter.patch('/:crm', validarUpdate, async (req, res, next) => {
   try {
     const crm = req.params.crm
-    const medico = req.body.dados as MedicoRequest
-    const resultado = await alterarMedico(crm, medico)
+    const dados = req.body.dados as DadosMedicoRequest
+    const resultado = await alterarMedico(crm, dados.medico)
 
     res.status(200).json({ erro: false, resultado: resultado })
   } catch (error) {
