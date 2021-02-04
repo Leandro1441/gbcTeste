@@ -12,7 +12,7 @@ import { formatarCRM, telefone } from '../../services/formatar.fn'
 import { NotFoundError } from '../../services/error/error.class'
 import { UpdateResult } from 'typeorm'
 
-const formartarMedicoParaSalvar = (medico: MedicoRequest, endereco: CorreioReponse): CriarAlterarMedicoDTO => {
+export const formatarMedicoParaSalvar = (medico: MedicoRequest, endereco: CorreioReponse): CriarAlterarMedicoDTO => {
   const medicoToSave: CriarAlterarMedicoDTO = {
     CRM: formatarCRM(medico.crm),
     complementoEndereco: medico.complementoEndereco,
@@ -32,12 +32,12 @@ const formartarMedicoParaSalvar = (medico: MedicoRequest, endereco: CorreioRepon
 
 export const criarMedico = async (dados: DadosMedicoRequest): Promise<Medico> => {
   const endereco = await buscarCep(dados.medico.cep)
-
+  
   const medicoRepository = new MedicoRepository()
   const medicoEspecialidadeRepository = new MedicoEspecialidadeRepository()
 
-  const medicoFormatadoToSave = formartarMedicoParaSalvar(dados.medico, endereco)
-
+  const medicoFormatadoToSave = formatarMedicoParaSalvar(dados.medico, endereco)
+  console.log(medicoFormatadoToSave)
   const medicoSave = await medicoRepository.createAndSave(medicoFormatadoToSave)
 
   dados.especialidades.map(async (especialidade) => {
@@ -85,7 +85,7 @@ export const alterarMedico = async (crm: string, medico: MedicoRequest) => {
   const endereco = await buscarCep(medico.cep)
 
   const medicoRepository = new MedicoRepository()
-  const medicoFormatadoToSave = formartarMedicoParaSalvar(medico, endereco)
+  const medicoFormatadoToSave = formatarMedicoParaSalvar(medico, endereco)
 
   const resultado = await medicoRepository.update(crm, medicoFormatadoToSave)
 
