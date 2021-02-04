@@ -1,0 +1,916 @@
+{
+	"info": {
+		"_postman_id": "f536f657-ec51-4189-b296-327d442ef22b",
+		"name": "GBC",
+		"description": "# Apresentação\r\n\r\nDocumentação para utilização da API GBC\r\n\r\n# Autentificação\r\n\r\nNão a rotas privatas\r\n\r\n# Error code\r\n\r\n**400 - Bad Request\r\n\r\nDados enviados de dorma incorretas\r\n\r\n**404 - unauthorized\r\n\r\nNão autorizado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rotas publicas",
+			"item": [
+				{
+					"name": "medico",
+					"item": [
+						{
+							"name": "Criar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dados\": {\r\n        \"medico\": {\r\n            \"crm\": \"9974872\",\r\n            \"nomeMedico\": \"Leandro do nascimento\",\r\n            \"cep\": \"01001000\",\r\n            \"numeroEndereco\": \"95\",\r\n            \"complementoEndereco\": \"nada\",\r\n            \"dddCelular\": \"11\",\r\n            \"telefoneCelular\": \"957163275\",\r\n            \"dddFixo\": \"11\",\r\n            \"telefoneFixo\": \"957163275\"\r\n        },\r\n        \"especialidades\": [\r\n            {\r\n            \"idEspecialidade\": \"06d43fb5-fa60-428a-925b-7da27d6fdc69\"\r\n            },\r\n            {\r\n            \"idEspecialidade\": \"25c8da35-16d1-46e1-9f0b-6bb879c79d0a\"\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8087/v1/medico/",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"v1",
+										"medico",
+										""
+									]
+								},
+								"description": "Cria novo medico na aplicação"
+							},
+							"response": [
+								{
+									"name": "Criando um Medico com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dados\": {\r\n        \"medico\": {\r\n            \"crm\": \"9974872\",\r\n            \"nomeMedico\": \"Leandro do nascimento\",\r\n            \"cep\": \"01001000\",\r\n            \"numeroEndereco\": \"95\",\r\n            \"complementoEndereco\": \"nada\",\r\n            \"dddCelular\": \"11\",\r\n            \"telefoneCelular\": \"957163275\"\r\n        },\r\n        \"especialidades\": [\r\n            {\r\n            \"idEspecialidade\": \"06d43fb5-fa60-428a-925b-7da27d6fdc69\"\r\n            },\r\n            {\r\n            \"idEspecialidade\": \"25c8da35-16d1-46e1-9f0b-6bb879c79d0a\"\r\n            }\r\n        ]\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8087/v1/medico/",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "365"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"16d-IRqjLnlr7qHK/olljwrYTOQZ30w\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:45:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": {\n        \"CRM\": \"99.748.72\",\n        \"nomeMedico\": \"Leandro do nascimento\",\n        \"rua\": \"Praça da Sé\",\n        \"numeroEndereco\": \"95\",\n        \"CEP\": \"01001-000\",\n        \"complementoEndereco\": \"nada\",\n        \"telefoneFixo\": \"0000-0000\",\n        \"dddCelular\": \"11\",\n        \"telefoneCelular\": \"95716-3275\",\n        \"isDeleted\": 0,\n        \"dddFixo\": null,\n        \"created\": \"2021-02-04T15:45:18.727Z\",\n        \"updated\": \"2021-02-04T15:45:18.727Z\",\n        \"version\": 1\n    }\n}"
+								},
+								{
+									"name": "Criar Medico",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"dados\": {\r\n        \"medico\": {\r\n            \"crm\": \"9974872\",\r\n            \"nomeMedico\": \"Leandro do nascimento\",\r\n            \"cep\": \"01001000\",\r\n            \"numeroEndereco\": \"95\",\r\n            \"complementoEndereco\": \"nada\",\r\n            \"dddCelular\": \"11\",\r\n            \"telefoneCelular\": \"957163275\",\r\n            \"dddFixo\": \"11\",\r\n            \"telefoneFixo\": \"957163275\"\r\n        },\r\n        \"especialidades\": [\r\n            {\r\n            \"idEspecialidade\": \"06d43fb5-fa60-428a-925b-7da27d6fdc69\"\r\n            },\r\n            {\r\n            \"idEspecialidade\": \"25c8da35-16d1-46e1-9f0b-6bb879c79d0a\"\r\n            }\r\n        ]\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8087/v1/medico/",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "291"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"123-P82H1TCqArPAqviBjVObJmivvNU\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:47:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": {\n        \"CRM\": \"99.748.72\",\n        \"nomeMedico\": \"Leandro do nascimento\",\n        \"rua\": \"Praça da Sé\",\n        \"numeroEndereco\": \"95\",\n        \"CEP\": \"01001-000\",\n        \"complementoEndereco\": \"nada\",\n        \"dddFixo\": \"11\",\n        \"telefoneFixo\": \"9571-6327\",\n        \"dddCelular\": \"11\",\n        \"telefoneCelular\": \"95716-3275\",\n        \"isDeleted\": 0,\n        \"version\": 2\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Buscar todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8087/v1/medico/?busca=Leandro&skip=0",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"v1",
+										"medico",
+										""
+									],
+									"query": [
+										{
+											"key": "busca",
+											"value": "Leandro"
+										},
+										{
+											"key": "skip",
+											"value": "0"
+										}
+									]
+								},
+								"description": "Busca todos os medicos"
+							},
+							"response": [
+								{
+									"name": "Buscar todos com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/medico/?busca=Leandro&skip=0",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												""
+											],
+											"query": [
+												{
+													"key": "busca",
+													"value": "Leandro"
+												},
+												{
+													"key": "skip",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "367"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"16f-05+aw3LRLZUooPccP/hFNAs8Yms\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:56:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": [\n        {\n            \"CRM\": \"99.748.72\",\n            \"nomeMedico\": \"Leandro do nascimento\",\n            \"rua\": \"Praça da Sé\",\n            \"numeroEndereco\": \"95\",\n            \"CEP\": \"01001-000\",\n            \"complementoEndereco\": \"nada\",\n            \"dddFixo\": \"11\",\n            \"telefoneFixo\": \"9571-6327\",\n            \"dddCelular\": \"11\",\n            \"telefoneCelular\": \"95716-3275\",\n            \"isDeleted\": 0,\n            \"created\": \"2021-02-04T15:45:18.727Z\",\n            \"updated\": \"2021-02-04T15:45:18.727Z\",\n            \"version\": 2\n        }\n    ]\n}"
+								},
+								{
+									"name": "Buscar todos os medicos",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/medico/?busca=Leandro&skip=0",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												""
+											],
+											"query": [
+												{
+													"key": "busca",
+													"value": "Leandro"
+												},
+												{
+													"key": "skip",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "367"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"16f-05+aw3LRLZUooPccP/hFNAs8Yms\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:51:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": [\n        {\n            \"CRM\": \"99.748.72\",\n            \"nomeMedico\": \"Leandro do nascimento\",\n            \"rua\": \"Praça da Sé\",\n            \"numeroEndereco\": \"95\",\n            \"CEP\": \"01001-000\",\n            \"complementoEndereco\": \"nada\",\n            \"dddFixo\": \"11\",\n            \"telefoneFixo\": \"9571-6327\",\n            \"dddCelular\": \"11\",\n            \"telefoneCelular\": \"95716-3275\",\n            \"isDeleted\": 0,\n            \"created\": \"2021-02-04T15:45:18.727Z\",\n            \"updated\": \"2021-02-04T15:45:18.727Z\",\n            \"version\": 2\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Buscar pela CRM",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8087/v1/medico/99.148.72",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"v1",
+										"medico",
+										"99.148.72"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Buscando medico pela CRM",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/medico/99.748.72",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												"99.748.72"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "365"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"16d-ixojpQZyMWSJoPa8uAFLsBMNSWk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:49:57 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": {\n        \"CRM\": \"99.748.72\",\n        \"nomeMedico\": \"Leandro do nascimento\",\n        \"rua\": \"Praça da Sé\",\n        \"numeroEndereco\": \"95\",\n        \"CEP\": \"01001-000\",\n        \"complementoEndereco\": \"nada\",\n        \"dddFixo\": \"11\",\n        \"telefoneFixo\": \"9571-6327\",\n        \"dddCelular\": \"11\",\n        \"telefoneCelular\": \"95716-3275\",\n        \"isDeleted\": 0,\n        \"created\": \"2021-02-04T15:45:18.727Z\",\n        \"updated\": \"2021-02-04T15:45:18.727Z\",\n        \"version\": 2\n    }\n}"
+								},
+								{
+									"name": "Buscar pela CRM com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/medico/99.148.72",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												"99.148.72"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "366"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"16e-Rdi4Nfh6ie04k/BzggcIwPg1kDc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:57:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": {\n        \"CRM\": \"99.148.72\",\n        \"nomeMedico\": \"Paulo do nascimento\",\n        \"rua\": \"Praça da Sé\",\n        \"numeroEndereco\": \"95\",\n        \"CEP\": \"01001-000\",\n        \"complementoEndereco\": \"AJAHSJA\",\n        \"dddFixo\": null,\n        \"telefoneFixo\": \"0000-0000\",\n        \"dddCelular\": \"11\",\n        \"telefoneCelular\": \"95716-3275\",\n        \"isDeleted\": 1,\n        \"created\": \"2021-02-04T14:17:46.752Z\",\n        \"updated\": \"2021-02-04T14:17:46.752Z\",\n        \"version\": 5\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Alterar Status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "localhost:8087/v1/medico/status/99.148.72",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"v1",
+										"medico",
+										"status",
+										"99.148.72"
+									]
+								},
+								"description": "Altera o status do medico"
+							},
+							"response": [
+								{
+									"name": "Alterar Status com sucesso",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/medico/status/99.148.72",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												"status",
+												"99.148.72"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "235"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"eb-SeUW3H1VQbJNAu3BSd8BqYWstm8\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:55:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": {\n        \"generatedMaps\": [],\n        \"raw\": {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"serverStatus\": 2,\n            \"warningCount\": 0,\n            \"message\": \"(Rows matched: 1  Changed: 1  Warnings: 0\",\n            \"protocol41\": true,\n            \"changedRows\": 1\n        },\n        \"affected\": 1\n    }\n}"
+								},
+								{
+									"name": "Alterar Status com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/medico/staus/99.148.72",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												"staus",
+												"99.148.72"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self'"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "164"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:54:32 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>Cannot GET /v1/medico/staus/99.148.72</pre>\n    </body>\n</html>"
+								}
+							]
+						},
+						{
+							"name": "Buscar por especialidade",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8087/v1/medico/porEspecialidade/25c8da35-16d1-46e1-9f0b-6bb879c79d0a",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"v1",
+										"medico",
+										"porEspecialidade",
+										"25c8da35-16d1-46e1-9f0b-6bb879c79d0a"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Buscar por especialidade com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/medico/porEspecialidade/25c8da35-16d1-46e1-9f0b-6bb879c79d0a",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												"porEspecialidade",
+												"25c8da35-16d1-46e1-9f0b-6bb879c79d0a"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1381"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"565-aLSmMIkHOYzQ9VBqkXFMEmzKzRk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 16:59:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": [\n        {\n            \"CRM\": \"99.145.72\",\n            \"nomeMedico\": \"Paulo do nascimento\",\n            \"rua\": \"Praça da Sé\",\n            \"numeroEndereco\": \"95\",\n            \"CEP\": \"01001-000\",\n            \"complementoEndereco\": \"nada\",\n            \"dddFixo\": null,\n            \"telefoneFixo\": \"0000-0000\",\n            \"dddCelular\": \"11\",\n            \"telefoneCelular\": \"95716-3275\",\n            \"isDeleted\": 0,\n            \"created\": \"2021-02-04T14:16:54.185Z\",\n            \"updated\": \"2021-02-04T14:16:54.185Z\",\n            \"version\": 1\n        },\n        {\n            \"CRM\": \"99.148.72\",\n            \"nomeMedico\": \"Paulo do nascimento\",\n            \"rua\": \"Praça da Sé\",\n            \"numeroEndereco\": \"95\",\n            \"CEP\": \"01001-000\",\n            \"complementoEndereco\": \"AJAHSJA\",\n            \"dddFixo\": null,\n            \"telefoneFixo\": \"0000-0000\",\n            \"dddCelular\": \"11\",\n            \"telefoneCelular\": \"95716-3275\",\n            \"isDeleted\": 1,\n            \"created\": \"2021-02-04T14:17:46.752Z\",\n            \"updated\": \"2021-02-04T14:17:46.752Z\",\n            \"version\": 5\n        },\n        {\n            \"CRM\": \"99.748.72\",\n            \"nomeMedico\": \"Leandro do nascimento\",\n            \"rua\": \"Praça da Sé\",\n            \"numeroEndereco\": \"95\",\n            \"CEP\": \"01001-000\",\n            \"complementoEndereco\": \"nada\",\n            \"dddFixo\": \"11\",\n            \"telefoneFixo\": \"9571-6327\",\n            \"dddCelular\": \"11\",\n            \"telefoneCelular\": \"95716-3275\",\n            \"isDeleted\": 0,\n            \"created\": \"2021-02-04T15:45:18.727Z\",\n            \"updated\": \"2021-02-04T15:45:18.727Z\",\n            \"version\": 2\n        },\n        {\n            \"CRM\": \"99.845.72\",\n            \"nomeMedico\": \"Paulo do nascimento\",\n            \"rua\": \"Praça da Sé\",\n            \"numeroEndereco\": \"95\",\n            \"CEP\": \"01001-000\",\n            \"complementoEndereco\": \"nada\",\n            \"dddFixo\": null,\n            \"telefoneFixo\": \"0000-0000\",\n            \"dddCelular\": \"11\",\n            \"telefoneCelular\": \"95716-3275\",\n            \"isDeleted\": 0,\n            \"created\": \"2021-02-04T13:06:36.580Z\",\n            \"updated\": \"2021-02-04T13:06:36.580Z\",\n            \"version\": 1\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Alterar cadastro",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n     \"dados\": {\r\n        \"medico\": {\r\n            \"nomeMedico\": \"Leandro do nascimento\",\r\n            \"cep\": \"01001000\",\r\n            \"numeroEndereco\": \"95\",\r\n            \"complementoEndereco\": \"casa 3\",\r\n            \"dddCelular\": \"11\",\r\n            \"telefoneCelular\": \"957163275\",\r\n            \"dddFixo\": \"11\",\r\n            \"telefoneFixo\": \"957163275\"\r\n        }\r\n     }\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8087/v1/medico/99.148.72",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"v1",
+										"medico",
+										"99.148.72"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Alterar cadastro com sucesso",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": " {\r\n     \"dados\": {\r\n        \"medico\": {\r\n            \"nomeMedico\": \"Leandro do nascimento\",\r\n            \"cep\": \"01001000\",\r\n            \"numeroEndereco\": \"95\",\r\n            \"complementoEndereco\": \"casa 3\",\r\n            \"dddCelular\": \"11\",\r\n            \"telefoneCelular\": \"957163275\",\r\n            \"dddFixo\": \"11\",\r\n            \"telefoneFixo\": \"957163275\"\r\n        }\r\n     }\r\n }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8087/v1/medico/99.148.72",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"medico",
+												"99.148.72"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "235"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"eb-SeUW3H1VQbJNAu3BSd8BqYWstm8\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 17:02:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": {\n        \"generatedMaps\": [],\n        \"raw\": {\n            \"fieldCount\": 0,\n            \"affectedRows\": 1,\n            \"insertId\": 0,\n            \"serverStatus\": 2,\n            \"warningCount\": 0,\n            \"message\": \"(Rows matched: 1  Changed: 1  Warnings: 0\",\n            \"protocol41\": true,\n            \"changedRows\": 1\n        },\n        \"affected\": 1\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "especialicação",
+					"item": [
+						{
+							"name": "Buscar especialidades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8087/v1/especialidade?busca&skip",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"v1",
+										"especialidade"
+									],
+									"query": [
+										{
+											"key": "busca",
+											"value": null
+										},
+										{
+											"key": "skip",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Buscar especialicações com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8087/v1/especialidade?busca&skip",
+											"host": [
+												"localhost"
+											],
+											"port": "8087",
+											"path": [
+												"v1",
+												"especialidade"
+											],
+											"query": [
+												{
+													"key": "busca",
+													"value": null
+												},
+												{
+													"key": "skip",
+													"value": null
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1499"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5db-LxUTAZcdtRpNm1LHmwV4/PHb+iI\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 04 Feb 2021 17:04:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"erro\": false,\n    \"resultado\": [\n        {\n            \"especialidadeId\": \"06d43fb5-fa60-428a-925b-7da27d6fdc69\",\n            \"nomeEspecilidade\": \"CARDIOLOGIA INFANTIL\",\n            \"created\": \"2021-02-04T13:05:18.867Z\",\n            \"updated\": \"2021-02-04T13:05:18.867Z\",\n            \"version\": 1\n        },\n        {\n            \"especialidadeId\": \"25c8da35-16d1-46e1-9f0b-6bb879c79d0a\",\n            \"nomeEspecilidade\": \"CIRURGIA CABEÇA E PESCOÇO\",\n            \"created\": \"2021-02-04T13:05:18.885Z\",\n            \"updated\": \"2021-02-04T13:05:18.885Z\",\n            \"version\": 1\n        },\n        {\n            \"especialidadeId\": \"5d41a639-958a-4565-b64e-0199393ca725\",\n            \"nomeEspecilidade\": \"CARDIOLOGIA CLÍNICA\",\n            \"created\": \"2021-02-04T13:05:18.836Z\",\n            \"updated\": \"2021-02-04T13:05:18.836Z\",\n            \"version\": 1\n        },\n        {\n            \"especialidadeId\": \"5dc4ae0b-ed9d-4f7e-a034-b16fe897bcf7\",\n            \"nomeEspecilidade\": \"CIRURGIA DE TÓRAX\",\n            \"created\": \"2021-02-04T13:05:18.983Z\",\n            \"updated\": \"2021-02-04T13:05:18.983Z\",\n            \"version\": 1\n        },\n        {\n            \"especialidadeId\": \"7423c029-49f0-44ba-8fc6-9219cd531a26\",\n            \"nomeEspecilidade\": \"BUCO MAXILO\",\n            \"created\": \"2021-02-04T13:05:18.805Z\",\n            \"updated\": \"2021-02-04T13:05:18.805Z\",\n            \"version\": 1\n        },\n        {\n            \"especialidadeId\": \"7e1906d4-decb-4dc1-990d-1ad4881be341\",\n            \"nomeEspecilidade\": \"ANGIOLOGIA\",\n            \"created\": \"2021-02-04T13:05:18.796Z\",\n            \"updated\": \"2021-02-04T13:05:18.796Z\",\n            \"version\": 1\n        },\n        {\n            \"especialidadeId\": \"bb527781-937c-4901-9169-a29839985307\",\n            \"nomeEspecilidade\": \"ALERGOLOGIA\",\n            \"created\": \"2021-02-04T13:05:18.754Z\",\n            \"updated\": \"2021-02-04T13:05:18.754Z\",\n            \"version\": 1\n        },\n        {\n            \"especialidadeId\": \"e606bb16-8b48-435d-a52e-1fe85dee1abf\",\n            \"nomeEspecilidade\": \"CIRURGIA CARDÍACA\",\n            \"created\": \"2021-02-04T13:05:18.963Z\",\n            \"updated\": \"2021-02-04T13:05:18.963Z\",\n            \"version\": 1\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "# Aqui será listadas as rotas publicas da aplicação\r\n\r\n- Criação de medico\r\n\r\n- Alteraçao de medico\r\n\r\n- Buscar medico por crm\r\n\r\n- Buscar todos os medicos\r\n\r\n- Alterar estatus do medico\r\n\r\n- Buscar especialização"
+		}
+	]
+}
