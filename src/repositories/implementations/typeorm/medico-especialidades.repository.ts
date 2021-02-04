@@ -1,6 +1,6 @@
-import { MedicoEspecialidade } from './../../../models/medico-especialidade.model'
+import { MedicoEspecialidade } from '../../../models/medico-especialidade.model'
 import { getRepository, Repository } from 'typeorm'
-import IMedicoEspecialidadeRepository from '../../i-medico-especialidades'
+import IMedicoEspecialidadeRepository from '../../i-medico-especialidades.repository'
 import CriarMedicoEspecialidadeDTO from '../../../dtos/criar-medico-especialidade.dto'
 
 

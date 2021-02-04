@@ -6,7 +6,7 @@ import MedicoRepository from '../../repositories/implementations/typeorm/medicos
 import { CorreioReponse } from '../../services/correrios/correio'
 import { buscarCep } from '../../services/correrios/correio.infra'
 import { DadosMedicoRequest, MedicoRequest } from './medico'
-import MedicoEspecialidadeRepository from '../../repositories/implementations/typeorm/medico-especialidades'
+import MedicoEspecialidadeRepository from '../../repositories/implementations/typeorm/medico-especialidades.repository'
 import CriarMedicoEspecialidadeDTO from '../../dtos/criar-medico-especialidade.dto'
 import { formatarCRM, telefone } from '../../services/formatar.fn'
 import { NotFoundError } from '../../services/error/error.class'
