@@ -1,4 +1,4 @@
-import { alterarMedico, alterarStatusMedico, buscarMedico, criarMedico, buscarMedicos } from './medico.service'
+import { alterarMedico, alterarStatusMedico, buscarMedico, criarMedico, buscarMedicos, buscarMedicoPorEspecialidade } from './medico.service'
 import express from 'express'
 import { DadosMedicoRequest, MedicoRequest } from './medico'
 import { validarSave, validarUpdate } from './medico.middleware'
@@ -21,9 +21,22 @@ medicoBoletoRouter.get('/', async (req, res, next) => {
 medicoBoletoRouter.get('/:crm', async (req, res, next) => {
   try {
     const crm = req.params.crm
+
     const medico = await buscarMedico(crm)
 
     res.status(200).json({ erro: false, resultado: medico })
+  }
+  catch (error) {
+    next(error)
+  }
+})
+
+medicoBoletoRouter.get('/porEspecialidade/:especialidade', async (req, res, next) => {
+  try {
+    const especialidade = req.params.especialidade
+    const medicos = await buscarMedicoPorEspecialidade(especialidade)
+
+    res.status(200).json({ erro: false, resultado: medicos })
   }
   catch (error) {
     next(error)

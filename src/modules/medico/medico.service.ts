@@ -63,6 +63,15 @@ export const buscarMedico = async (crm: string): Promise<Medico | undefined> => 
   return medico
 }
 
+export const buscarMedicoPorEspecialidade = async (especialidade: string): Promise<Medico[]> => {
+  const medicoRepository = new MedicoRepository()
+  const medico = await medicoRepository.findByEspecialidade(especialidade)
+
+  if (!medico) throw new NotFoundError('Medico não encontrado!')
+
+  return medico
+}
+
 export const alterarStatusMedico = async (crm: string): Promise<UpdateResult> => {
   const medicoRepository = new MedicoRepository()
   const resultado = await medicoRepository.softDeleted(crm)

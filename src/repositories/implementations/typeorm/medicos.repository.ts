@@ -45,6 +45,15 @@ class MedicoRepository implements IMedicoRepository {
     return medico
   }
 
+  public async findByEspecialidade(crm: string): Promise<Medico[]> {
+    const medico = this.ormRepository.createQueryBuilder('medicos')
+    .innerJoin('medicos_especialidades', 'medicos_especialidades', 'medicos_especialidades.CRM = medicos.CRM')
+    .innerJoin('especialidades', 'especialidades', 'especialidades.especialidadeId = medicos_especialidades.especialidadeId')
+    .getMany()
+
+    return medico
+  }
+
   public async find(busca: string = '', skip: number): Promise<Medico[] | undefined> {
     const medicos = await this.ormRepository.createQueryBuilder()
     .where(
