@@ -1,5 +1,5 @@
 import { Especialidade } from '../models/especialidade.model'
 
-export default interface IEspecialidade {
+export default interface IEspecialidadeRepository {
   find(busca: string, skip: number): Promise<Especialidade[]>
 }

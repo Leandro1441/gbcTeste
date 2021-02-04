@@ -1,6 +1,7 @@
 import cors, { CorsOptions } from 'cors'
 import express from 'express'
 import { conectarBD } from './database'
+import especialidadeBoletoRouter from './modules/especialidade/especialidade.controller'
 import medicoBoletoRouter from './modules/medico/medico.controller'
 import { inicializarRabbitMQ } from './services/infra/fila/fila.infra'
 
@@ -21,6 +22,7 @@ app.use(cors(corsOptions))
 const router = express.Router()
 
 router.use('/medico', medicoBoletoRouter)
+router.use('/especialidade', especialidadeBoletoRouter)
 
 app.use('/v1/', router)
 
