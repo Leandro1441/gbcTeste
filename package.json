@@ -8,7 +8,8 @@
     "dev": "nodemon src/app.ts",
     "list-migration": "ts-node node_modules/typeorm/cli.js migration:generate -n Migration",
     "migrate": "ts-node ./node_modules/typeorm/cli.js migration:run",
-    "test:unidade": "mocha --timeout 0 -r ts-node/register -r dotenv/config \"./**/*.spec.ts\""
+    "test:unidade": "mocha --timeout 0 -r ts-node/register -r dotenv/config \"./**/*.spec.ts\"",
+    "test:integracao": "mocha --timeout 0 -r ts-node/register -r dotenv/config ./src/**/*.test.ts"   
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",

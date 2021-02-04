@@ -37,7 +37,7 @@ export const criarMedico = async (dados: DadosMedicoRequest): Promise<Medico> =>
   const medicoEspecialidadeRepository = new MedicoEspecialidadeRepository()
 
   const medicoFormatadoToSave = formatarMedicoParaSalvar(dados.medico, endereco)
-  console.log(medicoFormatadoToSave)
+
   const medicoSave = await medicoRepository.createAndSave(medicoFormatadoToSave)
 
   dados.especialidades.map(async (especialidade) => {
