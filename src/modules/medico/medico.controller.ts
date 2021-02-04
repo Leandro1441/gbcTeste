@@ -1,4 +1,4 @@
-import { alterarMedico, alterarStatusMedico, buscarMedico, criarMedico } from './medico.service'
+import { alterarMedico, alterarStatusMedico, buscarMedico, criarMedico, buscarMedicos } from './medico.service'
 import express from 'express'
 import { DadosMedicoRequest, MedicoRequest } from './medico'
 import { validarSave, validarUpdate } from './medico.middleware'
@@ -7,7 +7,12 @@ const medicoBoletoRouter = express.Router()
 
 medicoBoletoRouter.get('/', async (req, res, next) => {
   try {
+    const busca = req.query.busca?.toString()
+    const skip = (typeof req.query.skip === 'string') ? parseInt(req.query.skip) : 0
 
+    const medicosBuscados = await buscarMedicos(busca, skip)
+
+    res.status(200).json({ erro: false, resultado: medicosBuscados })
   } catch (error) {
     next(error)
   }

@@ -9,7 +9,9 @@ export const formatarCRM = (crm: string): string => {
   return crmFormatado
 }
 
-export const telefone = (telefone: string, tipo = 'celular'): string => {
+export const telefone = (telefone: string | undefined , tipo = 'celular'): string => {
+  if(telefone === undefined) return '0000-0000'
+  
   if (tipo === 'celular') {
     const parte1 = telefone.slice(0, 5);
     const parte2 = telefone.slice(5, 9);

@@ -7,5 +7,5 @@ export default interface IMedicoRepository {
   softDeleted(crm: string): Promise<UpdateResult>
   findByCRM(crm: string): Promise<Medico | undefined>
   update(crm: string, data: CriarAlterarMedicoDTO): Promise<UpdateResult>
-  find(busca: string): Promise<Medico[] | undefined>
+  find(busca: string, skip: number): Promise<Medico[] | undefined>
 }

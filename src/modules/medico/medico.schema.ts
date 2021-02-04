@@ -16,6 +16,6 @@ export const medicoSchema = Joi.object().keys({
 export const dadosMedicoSchama = Joi.object().keys({
   medico: medicoSchema,
   especialidades: Joi.array().items(Joi.object().keys({
-    idEspecialidades: Joi.string().required()
+    idEspecialidade: Joi.string().required()
   })).required().min(2)
 })

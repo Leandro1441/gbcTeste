@@ -40,12 +40,12 @@ export const criarMedico = async (dados: DadosMedicoRequest): Promise<Medico> =>
 
   const medicoSave = await medicoRepository.createAndSave(medicoFormatadoToSave)
 
-  dados.especialidades.map((especialidade) => {
+  dados.especialidades.map(async (especialidade) => {
     const especialidadeFormatada: CriarMedicoEspecialidadeDTO = {
       especialidade: especialidade.idEspecialidade,
       medico: medicoSave
     }
-    medicoEspecialidadeRepository.createAndSave(especialidadeFormatada)
+    await medicoEspecialidadeRepository.createAndSave(especialidadeFormatada)
   })
 
   await enviarParaFila(medicoSave, 'medico', 'medico.criado')
@@ -84,3 +84,11 @@ export const alterarMedico = async (crm: string, medico: MedicoRequest) => {
 
   return resultado
 }
+
+export const buscarMedicos = (busca: string = '', skip: number) => {
+  const medicoRepository = new MedicoRepository()
+
+  const medicos = medicoRepository.find(busca, skip)
+
+  return medicos
+} 

@@ -9,7 +9,7 @@ export const validarSave: RequestHandler = async (req, _res, next) => {
     if (!req.body.dados?.medico) throw new BadRequestError('Não foram recebidos dados do medico para passar na validação, envie o body no seguinte formato: { dados: { medico: { // dados do medico } } }')
     if (!req.body.dados?.especialidades) throw new BadRequestError('Não foram recebidos dados de especialidades do medico para passar na validação, envie o body no seguinte formato: { dados: { especialidades: [ ids especialidades] } }')
 
-    validarSchema(req.body.dados.medico, dadosMedicoSchama, false)
+    validarSchema(req.body.dados, dadosMedicoSchama, false)
     next()
   } catch (error) {
     next(error)

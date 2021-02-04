@@ -1,7 +1,8 @@
-import { Medico } from './../../../models/medico.model';
+import { Medico } from './../../../models/medico.model'
 import { getRepository, Repository, UpdateResult } from 'typeorm'
 import IMedicoRepository from '../../i-medicos.repository'
 import CriarAlterarMedicoDTO from '../../../dtos/criar-medico.dto'
+import * as SQL from '../../../database'
 
 class MedicoRepository implements IMedicoRepository {
   constructor(
@@ -44,14 +45,16 @@ class MedicoRepository implements IMedicoRepository {
     return medico
   }
 
-  public async find(busca: string): Promise<Medico[] | undefined> {
+  public async find(busca: string = '', skip: number): Promise<Medico[] | undefined> {
     const medicos = await this.ormRepository.createQueryBuilder()
     .where(
-      `CRM like :busca or nomeMedico like :busca or rua like :busca or CEP like :busca or telefoneFixo like :busca
-      or telefoneFixo like :busca or telefoneCelular like :busca`, {
-        busca: busca
-      }
-    ).getMany()
+      `CRM LIKE ${SQL.escape('%' + busca + '%')} OR nomeMedico like ${SQL.escape('%' + busca + '%')} OR rua LIKE ${SQL.escape('%' + busca + '%')}
+      OR CEP LIKE ${SQL.escape('%' + busca + '%')} OR telefoneFixo LIKE ${SQL.escape('%' + busca + '%')}
+      OR telefoneFixo LIKE ${SQL.escape('%' + busca + '%')} OR telefoneCelular LIKE ${SQL.escape('%' + busca + '%')}`
+    )
+    .limit(10)
+    .skip(skip)
+    .getMany()
 
     return medicos
   }
