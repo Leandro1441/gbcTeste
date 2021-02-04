@@ -18,7 +18,7 @@ export class MedicoEspecialidade {
 
   @ManyToOne(() => Especialidade, especialidade => especialidade.medicoEspecialidades,{ nullable: false, onDelete: 'NO ACTION', onUpdate: 'NO ACTION' })
   @JoinColumn({
-    name: 'especilidadeId'
+    name: 'especialidadeId'
   })
   especialidade: Especialidade | string
 
